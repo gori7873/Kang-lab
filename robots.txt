@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gori7873.github.io/Kang-lab/sitemap.xml

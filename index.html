@@ -6,6 +6,16 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Cell Signaling &amp; Molecular Pharmacology Lab at Yonsei University. We combine G protein-coupled receptor (GPCR) functional screening, transducer-resolved pharmacology, receptor engineering, and mechanism-guided ligand discovery to define and control GPCR signaling." name="description"/>
 <title>Kang Lab | Cell Signaling &amp; Molecular Pharmacology | Yonsei University</title>
+<link href="https://gori7873.github.io/Kang-lab/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Kang Lab" property="og:site_name"/>
+<meta content="Kang Lab | Cell Signaling &amp; Molecular Pharmacology | Yonsei University" property="og:title"/>
+<meta content="Cell Signaling &amp; Molecular Pharmacology Lab at Yonsei University. We combine G protein-coupled receptor (GPCR) functional screening, transducer-resolved pharmacology, receptor engineering, and mechanism-guided ligand discovery to define and control GPCR signaling." property="og:description"/>
+<meta content="https://gori7873.github.io/Kang-lab/" property="og:url"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Kang Lab | Cell Signaling &amp; Molecular Pharmacology | Yonsei University" name="twitter:title"/>
+<meta content="Cell Signaling &amp; Molecular Pharmacology Lab at Yonsei University. We combine G protein-coupled receptor (GPCR) functional screening, transducer-resolved pharmacology, receptor engineering, and mechanism-guided ligand discovery to define and control GPCR signaling." name="twitter:description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -72,7 +82,7 @@
     border-bottom: 1px solid var(--rule-soft);
   }
   .nav-in { display: flex; align-items: center; gap: 18px; min-height: 58px; flex-wrap: wrap; padding-block: 8px; }
-  .brandmark { display: flex; align-items: baseline; gap: 9px; margin-right: auto; }
+  .brandmark { color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 9px; margin-right: auto; }
   .brandmark b { font-family: var(--font-display); font-weight: 600; font-size: 19px; letter-spacing: -.01em; }
   .brandmark span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
   .navlinks { display: flex; gap: 4px 2px; flex-wrap: wrap; }
@@ -85,7 +95,7 @@
   section { padding-block: clamp(52px, 7vw, 92px); }
   section + section { border-top: 1px solid var(--rule-soft); }
 
-  .sec-head { display: grid; gap: 10px; margin-bottom: 38px; max-width: 54ch; }
+  .sec-head { display: grid; gap: 10px; margin-bottom: 38px; max-width: none; }
   .sec-head h2 { font-size: clamp(27px, 4vw, 38px); line-height: 1.14; letter-spacing: -.015em; }
   .sec-head p { color: var(--ink-2); font-size: 16.5px; }
 
@@ -157,6 +167,7 @@
 
   ol.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: p; }
   ol.pubs li { padding-block: 17px; border-top: 1px solid var(--rule-soft); display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 4px 20px; }
+  ol.pubs li[hidden] { display: none; }
   ol.pubs li:last-child { border-bottom: 1px solid var(--rule-soft); }
   ol.pubs .y { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
   ol.pubs .t { font-size: 15.5px; line-height: 1.45; }
@@ -164,6 +175,7 @@
   ol.pubs .t a:hover { color: var(--donor); border-color: var(--donor); }
   ol.pubs .m { font-size: 13px; color: var(--muted); margin-top: 4px; }
   ol.pubs .m i { font-style: normal; color: var(--donor); }
+  ol.pubs .m strong { color: var(--ink-2); font-weight: 600; }
   .pubnote { font-size: 13px; color: var(--muted); margin-top: 18px; }
 
   /* ---- PI ---- */
@@ -438,7 +450,7 @@
     ol.pubs li { grid-template-columns: 44px minmax(0,1fr); gap: 4px 14px; }
     .cv-row { grid-template-columns: 78px minmax(0,1fr); gap: 12px; }
   }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (prefers-reduced-motion: reduce) { *:not(.gpcr-demo):not(.gpcr-demo *) { animation: none !important; transition: none !important; } }
 
 
   /* ---- focused current members: one person at a time on desktop ---- */
@@ -767,16 +779,6 @@
     }
   }
 
-  @media (max-width: 720px) and (prefers-reduced-motion: reduce) {
-    .gpcr-mobile-svg * { animation: none !important; }
-    .gpcr-mobile-svg .m-screen { opacity: 1; }
-    .gpcr-mobile-svg .m-threshold,
-    .gpcr-mobile-svg .m-hits { opacity: 1; }
-    .gpcr-mobile-svg .m-signal,
-    .gpcr-mobile-svg .m-final,
-    .gpcr-mobile-svg .m-chemical { opacity: 0; }
-  }
-
   @media (max-width: 720px) {
     .gpcr-demo { margin-top: 34px; }
     .gpcr-demo-head .gpcr-demo-note { display: none; }
@@ -794,22 +796,15 @@
     .gpcr-controls span { display: none; }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .gpcr-controls::after {
-      content: " Animation paused for reduced motion.";
-      color: var(--muted); font-family: var(--font-mono); font-size: 10px;
-    }
-  }
-
 </style>
 </head>
-<body>
+<body id="top">
 <nav class="top">
 <div class="wrap nav-in">
-<div class="brandmark">
+<a class="brandmark" href="#top" aria-label="Kang Lab, back to top">
 <b>Kang Lab</b>
-<span>Yonsei</span>
-</div>
+<span>@Yonsei</span>
+</a>
 <div class="navlinks">
 <a href="#research">Research</a>
 <a href="#publications">Publications</a>
@@ -1020,63 +1015,63 @@
 <article class="sel">
 <div class="venue"><span class="jrnl">Experimental &amp; Molecular Medicine</span><span class="yr">2026</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1038/s12276-026-01841-w">Pharmacological modulation of GPR84 revealed by dual-state structures and immune functional assays</a></p>
-<p class="auth">Choi MK†, Park DJ†, Kim P†, Choi HS, Myung S, Yoo Y, Chang N, Yoon GY, <strong>Kang HJ#</strong>, Ha SJ#, Cho HS#  ·  <span class="rcp">†co-first · #co-corresponding</span></p>
+<p class="ttl"><a href="https://doi.org/10.1038/s12276-026-01841-w" target="_blank" rel="noopener noreferrer">Pharmacological modulation of GPR84 revealed by dual-state structures and immune functional assays</a></p>
+<p class="auth">Choi MK†, Park DJ†, <strong>Kim P†</strong>, Choi HS, <strong>Myung S</strong>, Yoo Y, Chang N, Yoon GY, <strong>Kang HJ#</strong>, Ha SJ#, Cho HS#  ·  <span class="rcp">†co-first · #co-corresponding</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Cell</span><span class="yr">2024</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1016/j.cell.2024.11.001">Structure-guided design of a peripherally restricted chemogenetic system</a></p>
+<p class="ttl"><a href="https://doi.org/10.1016/j.cell.2024.11.001" target="_blank" rel="noopener noreferrer">Structure-guided design of a peripherally restricted chemogenetic system</a></p>
 <p class="auth"><strong>Kang HJ*</strong>, Krumm BE*, Tassou A*, Geron M*, DiBerto JF, Kapolka NJ, … Fay JF, Scherrer G, Roth BL  ·  <span class="rcp">*equal contribution</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Nature Reviews Methods Primers</span><span class="yr">2023</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1038/s43586-023-00285-0">Chemogenetics for cell-type-specific modulation of signalling and neuronal activity</a></p>
+<p class="ttl"><a href="https://doi.org/10.1038/s43586-023-00285-0" target="_blank" rel="noopener noreferrer">Chemogenetics for cell-type-specific modulation of signalling and neuronal activity</a></p>
 <p class="auth"><strong>Kang HJ#</strong>, Minamimoto T, Wess J, Roth BL#  ·  <span class="rcp">#corresponding author</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Nature</span><span class="yr">2021</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1038/s41586-021-04126-6">Structure, function and pharmacology of human itch GPCRs</a></p>
+<p class="ttl"><a href="https://doi.org/10.1038/s41586-021-04126-6" target="_blank" rel="noopener noreferrer">Structure, function and pharmacology of human itch GPCRs</a></p>
 <p class="auth">Cao C*, <strong>Kang HJ*</strong>, Singh I, Chen H, Zhang C, Ye W, … Shoichet BK, Fay JF, Roth BL  ·  <span class="rcp">*equal contribution</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Nature Communications</span><span class="yr">2023</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1038/s41467-023-37177-6">Structural insights into the human niacin receptor HCA2–G<sub>i</sub> signalling complex</a></p>
+<p class="ttl"><a href="https://doi.org/10.1038/s41467-023-37177-6" target="_blank" rel="noopener noreferrer">Structural insights into the human niacin receptor HCA2–G<sub>i</sub> signalling complex</a></p>
 <p class="auth">Yang Y*, <strong>Kang HJ*</strong>, Gao R*, Wang J, Han GW, DiBerto JF, … Roth BL, Rao Z, Liu ZJ  ·  <span class="rcp">*equal contribution</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Nature</span><span class="yr">2020</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1038/s41586-020-2027-0">Virtual discovery of melatonin receptor ligands to modulate circadian rhythms</a></p>
+<p class="ttl"><a href="https://doi.org/10.1038/s41586-020-2027-0" target="_blank" rel="noopener noreferrer">Virtual discovery of melatonin receptor ligands to modulate circadian rhythms</a></p>
 <p class="auth">Stein RM*, <strong>Kang HJ*</strong>, McCorvy JD*, Glatfelter GC*, … Shoichet BK, Roth BL, Dubocovich ML  ·  <span class="rcp">*equal contribution</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Neuropharmacology</span><span class="yr">2021</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1016/j.neuropharm.2021.108673">A promising chemical series of positive allosteric modulators of the μ-opioid receptor that enhance the antinociceptive efficacy of opioids but not their adverse effects</a></p>
+<p class="ttl"><a href="https://doi.org/10.1016/j.neuropharm.2021.108673" target="_blank" rel="noopener noreferrer">A promising chemical series of positive allosteric modulators of the μ-opioid receptor that enhance the antinociceptive efficacy of opioids but not their adverse effects</a></p>
 <p class="auth">Pryce KD*, <strong>Kang HJ*</strong>, Sakloth F*, Liu Y, Khan S, Toth K, Kapoor A, … Che T, Qin L, et al.  ·  <span class="rcp">*equal contribution</span></p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Journal of Biological Chemistry</span><span class="yr">2015</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1074/jbc.M114.622233">Determinants of endogenous ligand specificity divergence among metabotropic glutamate receptors</a></p>
+<p class="ttl"><a href="https://doi.org/10.1074/jbc.M114.622233" target="_blank" rel="noopener noreferrer">Determinants of endogenous ligand specificity divergence among metabotropic glutamate receptors</a></p>
 <p class="auth"><strong>Kang HJ</strong>, Wilkins AD, Lichtarge O, Wensel TG</p>
 </div>
 </article>
 <article class="sel">
 <div class="venue"><span class="jrnl">Journal of Biological Chemistry</span><span class="yr">2014</span></div>
 <div>
-<p class="ttl"><a href="https://doi.org/10.1074/jbc.M114.574483">Selectivity and evolutionary divergence of metabotropic glutamate receptors for endogenous ligands and G proteins coupled to phospholipase C or TRP channels</a></p>
+<p class="ttl"><a href="https://doi.org/10.1074/jbc.M114.574483" target="_blank" rel="noopener noreferrer">Selectivity and evolutionary divergence of metabotropic glutamate receptors for endogenous ligands and G proteins coupled to phospholipase C or TRP channels</a></p>
 <p class="auth"><strong>Kang HJ</strong>, Menlove K, Ma J, Wilkins A, Lichtarge O, Wensel TG</p>
 </div>
 </article>
@@ -1102,97 +1097,97 @@
 </div>
 <ol class="pubs" id="publist">
 <li data-y="2026"><span class="y">2026</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s12276-026-01841-w">Pharmacological modulation of GPR84 revealed by dual-state structures and immune functional assays</a></p>
-<p class="m"><i>Experimental &amp; Molecular Medicine</i> · Choi MK†, Park DJ†, Kim P†, Choi HS, Myung S, Yoo Y, Chang N, Yoon GY, Kang HJ#, Ha SJ#, Cho HS#</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s12276-026-01841-w" target="_blank" rel="noopener noreferrer">Pharmacological modulation of GPR84 revealed by dual-state structures and immune functional assays</a></p>
+<p class="m"><i>Experimental &amp; Molecular Medicine</i> · Choi MK†, Park DJ†, <strong>Kim P†</strong>, Choi HS, <strong>Myung S</strong>, Yoo Y, Chang N, Yoon GY, <strong>Kang HJ#</strong>, Ha SJ#, Cho HS#</p></div></li>
 <li data-y="2026"><span class="y">2026</span><div>
-<p class="t"><a href="https://doi.org/10.1080/15548627.2026.2677184">Organelle contact reorganization drives calcium-dependent autophagy under proteostatic stress</a></p>
-<p class="m"><i>Autophagy</i> · Ko Y, Ko M, Ueffing M, Kang HJ, Kwon HJ</p></div></li>
+<p class="t"><a href="https://doi.org/10.1080/15548627.2026.2677184" target="_blank" rel="noopener noreferrer">Organelle contact reorganization drives calcium-dependent autophagy under proteostatic stress</a></p>
+<p class="m"><i>Autophagy</i> · Ko Y, Ko M, Ueffing M, <strong>Kang HJ</strong>, Kwon HJ</p></div></li>
 <li data-y="2025"><span class="y">2025</span><div>
-<p class="t"><a href="https://doi.org/10.3390/biom15020291">G protein-coupled receptor (GPCR) signaling and pharmacology in metabolism: physiology, mechanisms, and therapeutic potential</a></p>
-<p class="m"><i>Biomolecules</i> · Cho YY†, Kim S†, Kim P, Jo MJ, Park SE, Choi Y, Jung SM*, Kang HJ*</p></div></li>
+<p class="t"><a href="https://doi.org/10.3390/biom15020291" target="_blank" rel="noopener noreferrer">G protein-coupled receptor (GPCR) signaling and pharmacology in metabolism: physiology, mechanisms, and therapeutic potential</a></p>
+<p class="m"><i>Biomolecules</i> · <strong>Cho YY†</strong>, Kim S†, <strong>Kim P</strong>, <strong>Jo MJ</strong>, <strong>Park SE</strong>, Choi Y, Jung SM*, <strong>Kang HJ*</strong></p></div></li>
 <li data-y="2024"><span class="y">2024</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.cell.2024.11.001">Structure-guided design of a peripherally restricted chemogenetic system</a></p>
-<p class="m"><i>Cell</i> · Kang HJ*, Krumm BE*, Tassou A*, Geron M*, DiBerto JF, Kapolka NJ, Gumpper RH, … Scherrer G, Roth BL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.cell.2024.11.001" target="_blank" rel="noopener noreferrer">Structure-guided design of a peripherally restricted chemogenetic system</a></p>
+<p class="m"><i>Cell</i> · <strong>Kang HJ*</strong>, Krumm BE*, Tassou A*, Geron M*, DiBerto JF, Kapolka NJ, Gumpper RH, … Scherrer G, Roth BL</p></div></li>
 <li data-y="2023"><span class="y">2023</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s43586-023-00285-0">Chemogenetics for cell-type-specific modulation of signalling and neuronal activity</a></p>
-<p class="m"><i>Nature Reviews Methods Primers</i> · Kang HJ#, Minamimoto T, Wess J, Roth BL#</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s43586-023-00285-0" target="_blank" rel="noopener noreferrer">Chemogenetics for cell-type-specific modulation of signalling and neuronal activity</a></p>
+<p class="m"><i>Nature Reviews Methods Primers</i> · <strong>Kang HJ#</strong>, Minamimoto T, Wess J, Roth BL#</p></div></li>
 <li data-y="2023"><span class="y">2023</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41467-023-43506-6">Docking for EP4R antagonists active against inflammatory pain</a></p>
-<p class="m"><i>Nature Communications</i> · Gahbauer S, DeLeon C, Braz JM, Craik V, Kang HJ, Wan X, … Roth BL, Shoichet BK</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41467-023-43506-6" target="_blank" rel="noopener noreferrer">Docking for EP4R antagonists active against inflammatory pain</a></p>
+<p class="m"><i>Nature Communications</i> · Gahbauer S, DeLeon C, Braz JM, Craik V, <strong>Kang HJ</strong>, Wan X, … Roth BL, Shoichet BK</p></div></li>
 <li data-y="2023"><span class="y">2023</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41467-023-37177-6">Structural insights into the human niacin receptor HCA2–Gi signalling complex</a></p>
-<p class="m"><i>Nature Communications</i> · Yang Y*, Kang HJ*, Gao R*, Wang J, Han GW, DiBerto JF, … Rao Z, Liu ZJ</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41467-023-37177-6" target="_blank" rel="noopener noreferrer">Structural insights into the human niacin receptor HCA2–Gi signalling complex</a></p>
+<p class="m"><i>Nature Communications</i> · Yang Y*, <strong>Kang HJ*</strong>, Gao R*, Wang J, Han GW, DiBerto JF, … Rao Z, Liu ZJ</p></div></li>
 <li data-y="2023"><span class="y">2023</span><div>
-<p class="t"><a href="https://doi.org/10.1021/acs.biochem.3c00029">Neurotensin receptor allosterism revealed in complex with a biased allosteric modulator</a></p>
-<p class="m"><i>Biochemistry</i> · Krumm BE, DiBerto JF, Olsen RHJ, Kang HJ, Slocum ST, Zhang S, … Kenakin T, Roth BL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1021/acs.biochem.3c00029" target="_blank" rel="noopener noreferrer">Neurotensin receptor allosterism revealed in complex with a biased allosteric modulator</a></p>
+<p class="m"><i>Biochemistry</i> · Krumm BE, DiBerto JF, Olsen RHJ, <strong>Kang HJ</strong>, Slocum ST, Zhang S, … Kenakin T, Roth BL</p></div></li>
 <li data-y="2022"><span class="y">2022</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41380-022-01673-w">Target deconvolution studies of (2R,6R)-hydroxynorketamine: an elusive search</a></p>
-<p class="m"><i>Molecular Psychiatry</i> · Bonaventura J, Gomez JL, Carlton ML, Lam S, Sanchez-Soto M, … Kang HJ, … Zarate CA Jr, Michaelides M</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41380-022-01673-w" target="_blank" rel="noopener noreferrer">Target deconvolution studies of (2R,6R)-hydroxynorketamine: an elusive search</a></p>
+<p class="m"><i>Molecular Psychiatry</i> · Bonaventura J, Gomez JL, Carlton ML, Lam S, Sanchez-Soto M, … <strong>Kang HJ</strong>, … Zarate CA Jr, Michaelides M</p></div></li>
 <li data-y="2022"><span class="y">2022</span><div>
-<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.2c00593">Design, synthesis, and characterization of [18F]mG2P026 as a high-contrast PET imaging ligand for mGlu2</a></p>
-<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Dhaynaut M, Guehl NJ, Afshar S, Huynh D, … Kang HJ, … Normandin MD, Brownell AL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.2c00593" target="_blank" rel="noopener noreferrer">Design, synthesis, and characterization of [18F]mG2P026 as a high-contrast PET imaging ligand for mGlu2</a></p>
+<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Dhaynaut M, Guehl NJ, Afshar S, Huynh D, … <strong>Kang HJ</strong>, … Normandin MD, Brownell AL</p></div></li>
 <li data-y="2022"><span class="y">2022</span><div>
-<p class="t"><a href="https://doi.org/10.1007/s00044-021-02797-4">Design and discovery of a high affinity, selective and β-arrestin biased 5-HT7 receptor agonist</a></p>
-<p class="m"><i>Medicinal Chemistry Research</i> · Onyameh EK, Ofori E, Bricker BA, Gonela UM, Eyunni SVK, Kang HJ, Voshavar C, Ablordeppey SY</p></div></li>
+<p class="t"><a href="https://doi.org/10.1007/s00044-021-02797-4" target="_blank" rel="noopener noreferrer">Design and discovery of a high affinity, selective and β-arrestin biased 5-HT7 receptor agonist</a></p>
+<p class="m"><i>Medicinal Chemistry Research</i> · Onyameh EK, Ofori E, Bricker BA, Gonela UM, Eyunni SVK, <strong>Kang HJ</strong>, Voshavar C, Ablordeppey SY</p></div></li>
 <li data-y="2022"><span class="y">2022</span><div>
-<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.1c02004">Synthesis and characterization of a dihydropyranopyridine carboxamide as a PET imaging ligand for mGlu2</a></p>
-<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Dhaynaut M, Lan Y, Guehl NJ, Huynh D, … Kang HJ, … Normandin MD, Brownell AL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.1c02004" target="_blank" rel="noopener noreferrer">Synthesis and characterization of a dihydropyranopyridine carboxamide as a PET imaging ligand for mGlu2</a></p>
+<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Dhaynaut M, Lan Y, Guehl NJ, Huynh D, … <strong>Kang HJ</strong>, … Normandin MD, Brownell AL</p></div></li>
 <li data-y="2021"><span class="y">2021</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41586-021-04126-6">Structure, function and pharmacology of human itch GPCRs</a></p>
-<p class="m"><i>Nature</i> · Cao C*, Kang HJ*, Singh I, Chen H, Zhang C, Ye W, … Shoichet B, Fay JF, Roth BL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41586-021-04126-6" target="_blank" rel="noopener noreferrer">Structure, function and pharmacology of human itch GPCRs</a></p>
+<p class="m"><i>Nature</i> · Cao C*, <strong>Kang HJ*</strong>, Singh I, Chen H, Zhang C, Ye W, … Shoichet B, Fay JF, Roth BL</p></div></li>
 <li data-y="2021"><span class="y">2021</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.neuropharm.2021.108673">A promising chemical series of positive allosteric modulators of the μ-opioid receptor that enhance the antinociceptive efficacy of opioids but not their adverse effects</a></p>
-<p class="m"><i>Neuropharmacology</i> · Pryce KD*, Kang HJ*, Sakloth F*, Liu Y, Khan S, Toth K, … Che T, Qin L, et al.</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.neuropharm.2021.108673" target="_blank" rel="noopener noreferrer">A promising chemical series of positive allosteric modulators of the μ-opioid receptor that enhance the antinociceptive efficacy of opioids but not their adverse effects</a></p>
+<p class="m"><i>Neuropharmacology</i> · Pryce KD*, <strong>Kang HJ*</strong>, Sakloth F*, Liu Y, Khan S, Toth K, … Che T, Qin L, et al.</p></div></li>
 <li data-y="2021"><span class="y">2021</span><div>
-<p class="t"><a href="https://doi.org/10.1007/s11307-021-01586-0">Synthesis and characterization of [18F]JNJ-46356479 as the first 18F-labeled PET imaging ligand for mGlu2</a></p>
-<p class="m"><i>Molecular Imaging and Biology</i> · Yuan G, Guehl NJ, Zheng B, Qu X, Moon SH, Dhaynaut M, … Kang HJ, Zhang Z, et al.</p></div></li>
+<p class="t"><a href="https://doi.org/10.1007/s11307-021-01586-0" target="_blank" rel="noopener noreferrer">Synthesis and characterization of [18F]JNJ-46356479 as the first 18F-labeled PET imaging ligand for mGlu2</a></p>
+<p class="m"><i>Molecular Imaging and Biology</i> · Yuan G, Guehl NJ, Zheng B, Qu X, Moon SH, Dhaynaut M, … <strong>Kang HJ</strong>, Zhang Z, et al.</p></div></li>
 <li data-y="2020"><span class="y">2020</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41586-020-2027-0">Virtual discovery of melatonin receptor ligands to modulate circadian rhythms</a></p>
-<p class="m"><i>Nature</i> · Stein RM*, Kang HJ*, McCorvy JD*, Glatfelter GC*, Jones AJ, Che T, … Roth BL, Dubocovich ML</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41586-020-2027-0" target="_blank" rel="noopener noreferrer">Virtual discovery of melatonin receptor ligands to modulate circadian rhythms</a></p>
+<p class="m"><i>Nature</i> · Stein RM*, <strong>Kang HJ*</strong>, McCorvy JD*, Glatfelter GC*, Jones AJ, Che T, … Roth BL, Dubocovich ML</p></div></li>
 <li data-y="2020"><span class="y">2020</span><div>
-<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.0c01394">Design, synthesis, and characterization of benzimidazole derivatives as PET imaging ligands for mGlu2</a></p>
-<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Qu X, Zheng B, Neelamegam R, Afshar S, Iyengar S, Pan C, Wang J, Kang HJ, Ondrechen MJ, et al.</p></div></li>
+<p class="t"><a href="https://doi.org/10.1021/acs.jmedchem.0c01394" target="_blank" rel="noopener noreferrer">Design, synthesis, and characterization of benzimidazole derivatives as PET imaging ligands for mGlu2</a></p>
+<p class="m"><i>Journal of Medicinal Chemistry</i> · Yuan G, Qu X, Zheng B, Neelamegam R, Afshar S, Iyengar S, Pan C, Wang J, <strong>Kang HJ</strong>, Ondrechen MJ, et al.</p></div></li>
 <li data-y="2020"><span class="y">2020</span><div>
-<p class="t"><a href="https://jnm.snmjournals.org/content/61/supplement_1/1031">Synthesis and evaluation of a F-18 labeled tricyclic thiazolopyrazole derivative for imaging of mGlu4</a></p>
-<p class="m"><i>Journal of Nuclear Medicine</i> · Wang J, Shoup T, Qu X, Kang HJ, El Fakhri G, Zhang Z, Brownell AL</p></div></li>
+<p class="t"><a href="https://jnm.snmjournals.org/content/61/supplement_1/1031" target="_blank" rel="noopener noreferrer">Synthesis and evaluation of a F-18 labeled tricyclic thiazolopyrazole derivative for imaging of mGlu4</a></p>
+<p class="m"><i>Journal of Nuclear Medicine</i> · Wang J, Shoup T, Qu X, <strong>Kang HJ</strong>, El Fakhri G, Zhang Z, Brownell AL</p></div></li>
 <li data-y="earlier"><span class="y">2019</span><div>
-<p class="t"><a href="https://doi.org/10.1038/s41467-019-11936-w">Zebrafish behavioural profiling identifies GABA and serotonin receptor ligands related to sedation and paradoxical excitation</a></p>
-<p class="m"><i>Nature Communications</i> · McCarroll MN, Gendelev L, Kinser R, Taylor J, Bruni G, … Kang HJ, … Keiser MJ, Kokel D</p></div></li>
+<p class="t"><a href="https://doi.org/10.1038/s41467-019-11936-w" target="_blank" rel="noopener noreferrer">Zebrafish behavioural profiling identifies GABA and serotonin receptor ligands related to sedation and paradoxical excitation</a></p>
+<p class="m"><i>Nature Communications</i> · McCarroll MN, Gendelev L, Kinser R, Taylor J, Bruni G, … <strong>Kang HJ</strong>, … Keiser MJ, Kokel D</p></div></li>
 <li data-y="earlier"><span class="y">2019</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.pbb.2019.02.003">Evaluation of SYA16263 as a new potential antipsychotic agent without catalepsy</a></p>
-<p class="m"><i>Pharmacology Biochemistry and Behavior</i> · Bricker BA, Peprah K, Kang HJ, Ablordeppey SY</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.pbb.2019.02.003" target="_blank" rel="noopener noreferrer">Evaluation of SYA16263 as a new potential antipsychotic agent without catalepsy</a></p>
+<p class="m"><i>Pharmacology Biochemistry and Behavior</i> · Bricker BA, Peprah K, <strong>Kang HJ</strong>, Ablordeppey SY</p></div></li>
 <li data-y="earlier"><span class="y">2018</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.bmc.2018.08.012">Isoxazolo[3,4-d]pyridazinones positively modulate the metabotropic glutamate subtypes 2 and 4</a></p>
-<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Gates C, Backos DS, Reigan P, Kang HJ, Koerner C, Mirzaei J, Natale NR</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.bmc.2018.08.012" target="_blank" rel="noopener noreferrer">Isoxazolo[3,4-d]pyridazinones positively modulate the metabotropic glutamate subtypes 2 and 4</a></p>
+<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Gates C, Backos DS, Reigan P, <strong>Kang HJ</strong>, Koerner C, Mirzaei J, Natale NR</p></div></li>
 <li data-y="earlier"><span class="y">2017</span><div>
-<p class="t"><a href="https://doi.org/10.1096/fj.201601074R">Protamine is an antagonist of apelin receptor, and its activity is reversed by heparin</a></p>
-<p class="m"><i>The FASEB Journal</i> · Le Gonidec S, Chaves-Almagro C, Bai Y, Kang HJ, Smith A, … Caron MG, Valet P, Audigier Y, Masri B</p></div></li>
+<p class="t"><a href="https://doi.org/10.1096/fj.201601074R" target="_blank" rel="noopener noreferrer">Protamine is an antagonist of apelin receptor, and its activity is reversed by heparin</a></p>
+<p class="m"><i>The FASEB Journal</i> · Le Gonidec S, Chaves-Almagro C, Bai Y, <strong>Kang HJ</strong>, Smith A, … Caron MG, Valet P, Audigier Y, Masri B</p></div></li>
 <li data-y="earlier"><span class="y">2017</span><div>
-<p class="t"><a href="https://doi.org/10.1021/acschemneuro.7b00098">A novel negative allosteric modulator for imaging of metabotropic glutamate receptor 2</a></p>
-<p class="m"><i>ACS Chemical Neuroscience</i> · Zhang X, Kumata K, Yamasaki T, Cheng R, Hatori A, … Kang HJ, … Zhang MR, Liang SH</p></div></li>
+<p class="t"><a href="https://doi.org/10.1021/acschemneuro.7b00098" target="_blank" rel="noopener noreferrer">A novel negative allosteric modulator for imaging of metabotropic glutamate receptor 2</a></p>
+<p class="m"><i>ACS Chemical Neuroscience</i> · Zhang X, Kumata K, Yamasaki T, Cheng R, Hatori A, … <strong>Kang HJ</strong>, … Zhang MR, Liang SH</p></div></li>
 <li data-y="earlier"><span class="y">2016</span><div>
-<p class="t"><a href="https://doi.org/10.1124/jpet.116.235838">Effects of ketamine and ketamine metabolites on evoked striatal dopamine release, dopamine receptors, and monoamine transporters</a></p>
-<p class="m"><i>Journal of Pharmacology and Experimental Therapeutics</i> · Can A, Zanos P, Moaddel R, Kang HJ, Dossou KSS, … Frost DO, Huang XP, Gould TD</p></div></li>
+<p class="t"><a href="https://doi.org/10.1124/jpet.116.235838" target="_blank" rel="noopener noreferrer">Effects of ketamine and ketamine metabolites on evoked striatal dopamine release, dopamine receptors, and monoamine transporters</a></p>
+<p class="m"><i>Journal of Pharmacology and Experimental Therapeutics</i> · Can A, Zanos P, Moaddel R, <strong>Kang HJ</strong>, Dossou KSS, … Frost DO, Huang XP, Gould TD</p></div></li>
 <li data-y="earlier"><span class="y">2016</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.bmc.2016.06.011">Development of CNS multi-receptor ligands: modification of known D2 pharmacophores</a></p>
-<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Etukala JR, Zhu XY, Eyunni SVK, Onyameh EK, Ofori E, Bricker BA, Kang HJ, Huang XP, Roth BL, Ablordeppey SY</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.bmc.2016.06.011" target="_blank" rel="noopener noreferrer">Development of CNS multi-receptor ligands: modification of known D2 pharmacophores</a></p>
+<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Etukala JR, Zhu XY, Eyunni SVK, Onyameh EK, Ofori E, Bricker BA, <strong>Kang HJ</strong>, Huang XP, Roth BL, Ablordeppey SY</p></div></li>
 <li data-y="earlier"><span class="y">2016</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.bmc.2016.05.053">Design and synthesis of dual 5-HT1A and 5-HT7 receptor ligands</a></p>
-<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Ofori E, Zhu XY, Etukala JR, Peprah K, Jordan KR, Adkins AA, Bricker BA, Kang HJ, Huang XP, Roth BL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.bmc.2016.05.053" target="_blank" rel="noopener noreferrer">Design and synthesis of dual 5-HT1A and 5-HT7 receptor ligands</a></p>
+<p class="m"><i>Bioorganic &amp; Medicinal Chemistry</i> · Ofori E, Zhu XY, Etukala JR, Peprah K, Jordan KR, Adkins AA, Bricker BA, <strong>Kang HJ</strong>, Huang XP, Roth BL</p></div></li>
 <li data-y="earlier"><span class="y">2015</span><div>
-<p class="t"><a href="https://doi.org/10.1016/j.bmcl.2015.07.031">Re-exploring the N-phenylpicolinamide derivatives to develop mGlu4 ligands with improved affinity and in vitro microsomal stability</a></p>
-<p class="m"><i>Bioorganic &amp; Medicinal Chemistry Letters</i> · Zhang Z, Kil KE, Poutiainen P, Choi JK, Kang HJ, Huang XP, Roth BL, Brownell AL</p></div></li>
+<p class="t"><a href="https://doi.org/10.1016/j.bmcl.2015.07.031" target="_blank" rel="noopener noreferrer">Re-exploring the N-phenylpicolinamide derivatives to develop mGlu4 ligands with improved affinity and in vitro microsomal stability</a></p>
+<p class="m"><i>Bioorganic &amp; Medicinal Chemistry Letters</i> · Zhang Z, Kil KE, Poutiainen P, Choi JK, <strong>Kang HJ</strong>, Huang XP, Roth BL, Brownell AL</p></div></li>
 <li data-y="earlier"><span class="y">2015</span><div>
-<p class="t"><a href="https://doi.org/10.1074/jbc.M114.622233">Determinants of endogenous ligand specificity divergence among metabotropic glutamate receptors</a></p>
-<p class="m"><i>Journal of Biological Chemistry</i> · Kang HJ, Wilkins AD, Lichtarge O, Wensel TG</p></div></li>
+<p class="t"><a href="https://doi.org/10.1074/jbc.M114.622233" target="_blank" rel="noopener noreferrer">Determinants of endogenous ligand specificity divergence among metabotropic glutamate receptors</a></p>
+<p class="m"><i>Journal of Biological Chemistry</i> · <strong>Kang HJ</strong>, Wilkins AD, Lichtarge O, Wensel TG</p></div></li>
 <li data-y="earlier"><span class="y">2014</span><div>
-<p class="t"><a href="https://doi.org/10.1074/jbc.M114.574483">Selectivity and evolutionary divergence of metabotropic glutamate receptors for endogenous ligands and G proteins coupled to phospholipase C or TRP channels</a></p>
-<p class="m"><i>Journal of Biological Chemistry</i> · Kang HJ, Menlove K, Ma J, Wilkins A, Lichtarge O, Wensel TG</p></div></li>
+<p class="t"><a href="https://doi.org/10.1074/jbc.M114.574483" target="_blank" rel="noopener noreferrer">Selectivity and evolutionary divergence of metabotropic glutamate receptors for endogenous ligands and G proteins coupled to phospholipase C or TRP channels</a></p>
+<p class="m"><i>Journal of Biological Chemistry</i> · <strong>Kang HJ</strong>, Menlove K, Ma J, Wilkins A, Lichtarge O, Wensel TG</p></div></li>
 </ol>
 <p class="pubnote">* equal contribution  ·  # corresponding author  ·  † equal contribution (first authors). Titles link to the publisher record.</p>
 </div>
 </section>
-<section id="people">
+<section id="people" data-nosnippet>
 <div class="wrap">
 <div class="sec-head">
 <p class="eyebrow">Principal investigator</p>
@@ -1268,7 +1263,7 @@
 <p class="topic">Sensory GPCR pharmacology and signaling</p>
 </div>
 <div class="member">
-<div class="mono-av">JK</div>
+<div class="mono-av">JS</div>
 <p class="nm">KIM, Jisu</p>
 <p class="role">M.S. · since 2026.03</p>
 <p class="topic">Chemosensory receptor pharmacology</p>
@@ -1287,13 +1282,13 @@
 <div class="team alumni-team">
 <div class="member">
 <div class="mono-av">PK</div>
-<p class="nm">Kim Pankyung</p>
+<p class="nm">KIM, Pankyung</p>
 <p class="role">M.S. alumnus</p>
 <p class="topic">Ahn-Gook Pharmaceutical</p>
 </div>
 <div class="member">
-<div class="mono-av">YY</div>
-<p class="nm">Cho Yunyeong</p>
+<div class="mono-av">YC</div>
+<p class="nm">CHO, Yun Yeong</p>
 <p class="role">M.S. alumna</p>
 </div>
 </div>
@@ -1378,9 +1373,9 @@
 <h3>Patent</h3>
 <div class="cvflat">Shoichet BK, Stein R, Roth BL, <b>Kang HJ</b>, Dubocovich M. <em>Modulators of Circadian Rhythms and Uses Thereof.</em> U.S. WO2021/041702 A1 — patent application</div>
 <h3>Press</h3>
-<div class="cvflat"><a href="https://www.med.unc.edu/pharm/a-new-jetlag-drug-scientists-create-selective-molecules-to-bind-to-melatonin-receptors">A new jetlag drug? Scientists create selective molecules to bind to melatonin receptors</a> — UNC Health and UNC School of Medicine Newsroom, February 2020</div>
-<div class="cvflat"><a href="https://www.ucsf.edu/news/2020/02/416636/virtual-pharmacology-yields-unprecedented-biological-clock-breakthrough">'Virtual pharmacology' yields unprecedented biological clock breakthrough</a> — UCSF News, February 2020</div>
-<div class="cvflat"><a href="http://medicine.buffalo.edu/news_and_events/news/2020/02/dubocovich-melatonin-research-10915.html">Melatonin research may aid in adjusting biological clocks</a> — University at Buffalo, February 2020</div>
+<div class="cvflat"><a href="https://www.med.unc.edu/pharm/a-new-jetlag-drug-scientists-create-selective-molecules-to-bind-to-melatonin-receptors" target="_blank" rel="noopener noreferrer">A new jetlag drug? Scientists create selective molecules to bind to melatonin receptors</a> — UNC Health and UNC School of Medicine Newsroom, February 2020</div>
+<div class="cvflat"><a href="https://www.ucsf.edu/news/2020/02/416636/virtual-pharmacology-yields-unprecedented-biological-clock-breakthrough" target="_blank" rel="noopener noreferrer">'Virtual pharmacology' yields unprecedented biological clock breakthrough</a> — UCSF News, February 2020</div>
+<div class="cvflat"><a href="http://medicine.buffalo.edu/news_and_events/news/2020/02/dubocovich-melatonin-research-10915.html" target="_blank" rel="noopener noreferrer">Melatonin research may aid in adjusting biological clocks</a> — University at Buffalo, February 2020</div>
 <h3>Fellowships</h3>
 <div class="cvitem"><span class="when">2009–2010</span><span class="what">Training fellowship, Pharmacoinformatics Training Program, Keck Center of the Gulf Coast Consortia <span class="rcp">(R90 DK071505)</span></span></div>
 <div class="cvitem"><span class="when">2005–2006</span><span class="what">Fellowship, Bioinformatics and Molecular Design Research Center, Korea</span></div>
@@ -1423,7 +1418,7 @@
 <div class="cvitem"><span class="when">2023–</span><span class="what">KSMCB — member, board of education</span></div>
 <div class="cvitem"><span class="when">2019–</span><span class="what">Journal of Industrial and Engineering Chemistry — reviewer</span></div>
 <h3>Publications</h3>
-<div class="cvflat">Full list on the <a href="#all-publications" id="cvtopubs">publications section</a> of this site, and on <a href="https://scholar.google.com/citations?user=3EMW0WgAAAAJ">Google Scholar</a>.</div>
+<div class="cvflat">Full list on the <a href="#all-publications" id="cvtopubs">publications section</a> of this site, and on <a href="https://scholar.google.com/citations?user=3EMW0WgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</div>
 </div>
 </div>
 </div>
@@ -2162,23 +2157,7 @@ document.addEventListener("visibilitychange", () => {
   if (!document.hidden) scheduleResize();
 });
 
-if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  startTime = performance.now() - 7200;
-  requestAnimationFrame((now) => {
-    const ms = 7200;
-    setCopy(ms);
-    progressBar.style.width = `${(ms / DURATION) * 100}%`;
-    ctx.clearRect(0, 0, W, H);
-    drawReceptors(ms);
-    drawChemical(ms);
-    drawSignal(ms);
-    drawFinal(ms);
-  });
-  paused = true;
-  toggleBtn.textContent = "Play";
-} else {
-  requestAnimationFrame(render);
-}
+requestAnimationFrame(render);
 })();
 
 </script>
