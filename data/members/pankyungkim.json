@@ -7,5 +7,15 @@
   "photo": null,
   "handle": null,
   "ORCID": null,
+  "publications": [
+    {
+      "doi": "10.1038/s12276-026-01841-w",
+      "role": "first"
+    },
+    {
+      "doi": "10.3390/biom15020291",
+      "role": "co"
+    }
+  ],
   "topic": "Ahn-Gook Pharmaceutical"
 }

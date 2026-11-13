@@ -6,6 +6,16 @@
   "join": "2024. 03",
   "photo": "images/members/minjeongjo.jpg",
   "handle": null,
-  "ORCID": null,
+  "ORCID": "0009-0005-8232-3026",
+  "publications": [
+    {
+      "doi": "10.3390/biom15020291",
+      "role": "co"
+    },
+    {
+      "doi": "10.1016/j.cell.2024.11.001",
+      "role": "co"
+    }
+  ],
   "topic": "Ligand discovery and pharmacology in sensory signaling"
 }

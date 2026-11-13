@@ -7,5 +7,11 @@
   "photo": "images/members/songepark.jpg",
   "handle": null,
   "ORCID": null,
+  "publications": [
+    {
+      "doi": "10.3390/biom15020291",
+      "role": "co"
+    }
+  ],
   "topic": "GPCR signaling and receptor pharmacology"
 }

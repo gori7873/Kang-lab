@@ -20,7 +20,7 @@
 <meta content="Cell Signaling &amp; Molecular Pharmacology Lab at Yonsei University. We combine G protein-coupled receptor (GPCR) functional screening, transducer-resolved pharmacology, receptor engineering, and mechanism-guided ligand discovery to define and control GPCR signaling." name="twitter:description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   /* ============================================================
      FIXED DESIGN TOKENS · PLEX / WARM / DARK
@@ -300,6 +300,30 @@
   .member:nth-child(4n+3) .mono-av { background: var(--acceptor); }
   .mono-av { color: var(--paper); }
   .member .nm { font-family: var(--font-display); font-size: 18.5px; line-height: 1.2; }
+  .nm-btn { appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; text-decoration: underline transparent; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .nm-btn:hover { color: var(--donor); text-decoration-color: currentColor; }
+
+  /* ---- member profile card ---- */
+  .mscrim { position: fixed; inset: 0; z-index: 95; display: grid; place-items: center; padding: 16px; background: color-mix(in srgb, var(--ink) 58%, transparent); backdrop-filter: blur(3px); }
+  .mscrim[hidden] { display: none !important; }
+  .mcard { position: relative; width: 100%; max-width: 420px; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow: auto; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow); padding: 22px 22px 24px; }
+  .mcard-close { position: absolute; top: 12px; right: 12px; appearance: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--rule); background: transparent; color: var(--ink-2); font-size: 18px; line-height: 1; cursor: pointer; }
+  .mcard-close:hover { border-color: var(--donor); color: var(--donor); }
+  .mcard-head { display: flex; align-items: center; gap: 14px; padding-right: 34px; margin-bottom: 18px; }
+  .mcard-head .member-photo, .mcard-head .mono-av { width: 64px; height: 64px; margin: 0; flex: none; font-size: 17px; }
+  .mcard-head h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.2; }
+  .mcard-sub { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--muted); margin-top: 3px; }
+  .mcard dl { margin: 0; }
+  .mcard dt { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); margin: 16px 0 3px; }
+  .mcard dt:first-child { margin-top: 0; }
+  .mcard dd { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .mcard ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  .mcard li small { display: block; color: var(--muted); font-size: 12px; }
+  .mcard dd a { color: var(--donor); }
+  .mcard-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 10px; }
+  .mcard-filter button { appearance: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-2); background: transparent; border: 1px solid var(--rule); padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+  .mcard-filter button:hover { border-color: var(--donor); color: var(--donor); }
+  .mcard-filter button[aria-pressed="true"] { background: var(--donor); border-color: var(--donor); color: var(--paper); }
   .member .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--muted); }
   .member .topic { font-size: 13.5px; color: var(--ink-2); line-height: 1.45; margin-top: 8px; }
 
@@ -1144,7 +1168,7 @@
 <p class="m"><i>Biomolecules</i> · <strong>Cho YY†</strong>, Kim S†, <strong>Kim P</strong>, <strong>Jo MJ</strong>, <strong>Park SE</strong>, Choi Y, Jung SM*, <strong>Kang HJ*</strong></p></div></li>
 <li data-y="2024"><span class="y">2024</span><div>
 <p class="t"><a href="https://doi.org/10.1016/j.cell.2024.11.001" target="_blank" rel="noopener noreferrer">Structure-guided design of a peripherally restricted chemogenetic system</a></p>
-<p class="m"><i>Cell</i> · <strong>Kang HJ*</strong>, Krumm BE*, Tassou A*, Geron M*, DiBerto JF, Kapolka NJ, Gumpper RH, … Scherrer G, Roth BL</p></div></li>
+<p class="m"><i>Cell</i> · <strong>Kang HJ*</strong>, Krumm BE*, Tassou A*, Geron M*, DiBerto JF, Kapolka NJ, Gumpper RH, …<strong>Jo MJ</strong> …Scherrer G, Roth BL</p></div></li>
 <li data-y="2023"><span class="y">2023</span><div>
 <p class="t"><a href="https://doi.org/10.1038/s43586-023-00285-0" target="_blank" rel="noopener noreferrer">Chemogenetics for cell-type-specific modulation of signalling and neuronal activity</a></p>
 <p class="m"><i>Nature Reviews Methods Primers</i> · <strong>Kang HJ#</strong>, Minamimoto T, Wess J, Roth BL#</p></div></li>
@@ -2265,11 +2289,146 @@ requestAnimationFrame(render);
     } else {
       d.appendChild(el("div", "mono-av", m.initials || ""));
     }
-    d.appendChild(el("p", "nm", nm));
+    var np = el("p", "nm");
+    var nb = el("button", "nm-btn", nm);
+    nb.type = "button";
+    nb.setAttribute("aria-haspopup", "dialog");
+    nb.addEventListener("click", function () { openCard(m, nm); });
+    np.appendChild(nb);
+    d.appendChild(np);
     var role = m.status === "alumni" ? m.position + " alumni" : m.position + (m.join ? " · since " + String(m.join).replace(/\s+/g, "") : "");
     d.appendChild(el("p", "role", role));
     if (m.topic) d.appendChild(el("p", "topic", m.topic));
     return d;
+  }
+  var scrim = null, panel = null, lastFocus = null;
+  function pubInfo(doi) {
+    var links = document.querySelectorAll("#publist a");
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].href === "https://doi.org/" + doi) {
+        var li = links[i].closest("li");
+        var y = li && li.querySelector(".y");
+        var v = li && li.querySelector(".m i");
+        return { href: links[i].href, title: links[i].textContent, meta: [v && v.textContent, y && y.textContent].filter(Boolean).join(" · ") };
+      }
+    }
+    return null;
+  }
+  function row(label, node) {
+    var wrap = document.createDocumentFragment();
+    wrap.appendChild(el("dt", null, label));
+    var dd = el("dd");
+    dd.appendChild(node);
+    wrap.appendChild(dd);
+    return wrap;
+  }
+  function closeCard() {
+    if (!scrim || scrim.hidden) return;
+    scrim.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function ensureCard() {
+    if (scrim) return;
+    scrim = el("div", "mscrim");
+    scrim.hidden = true;
+    panel = el("div", "mcard");
+    panel.setAttribute("role", "dialog");
+    panel.setAttribute("aria-modal", "true");
+    scrim.appendChild(panel);
+    document.body.appendChild(scrim);
+    scrim.addEventListener("click", function (e) { if (e.target === scrim) closeCard(); });
+    document.addEventListener("keydown", function (e) {
+      if (scrim.hidden) return;
+      if (e.key === "Escape") { closeCard(); return; }
+      if (e.key === "Tab") {
+        var f = panel.querySelectorAll("a[href], button");
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+  }
+  function openCard(m, nm) {
+    ensureCard();
+    lastFocus = document.activeElement;
+    panel.textContent = "";
+    panel.setAttribute("aria-label", nm);
+    var close = el("button", "mcard-close", "×");
+    close.type = "button";
+    close.setAttribute("aria-label", "Close profile");
+    close.addEventListener("click", closeCard);
+    panel.appendChild(close);
+    var head = el("div", "mcard-head");
+    if (m.photo) {
+      var img = el("img", "member-photo");
+      img.alt = nm; img.src = m.photo;
+      head.appendChild(img);
+    } else {
+      head.appendChild(el("div", "mono-av", m.initials || ""));
+    }
+    var t = el("div");
+    t.appendChild(el("h3", null, nm));
+    t.appendChild(el("p", "mcard-sub", m.status === "alumni" ? "Alumni" : "Current member"));
+    head.appendChild(t);
+    panel.appendChild(head);
+    var dl = el("dl");
+    var prog = m.position + (m.status !== "alumni" && m.join ? " · since " + String(m.join).replace(/\s+/g, "") : "");
+    dl.appendChild(row("Program", document.createTextNode(prog)));
+    if (m.topic) dl.appendChild(row(m.status === "alumni" ? "Current affiliation" : "Project topics", document.createTextNode(m.topic)));
+    var pubs = (m.publications || []).map(function (p) {
+      var o = typeof p === "string" ? { doi: p, role: "co" } : p;
+      var info = pubInfo(o.doi);
+      return info ? { info: info, role: o.role === "first" ? "first" : "co" } : null;
+    }).filter(Boolean);
+    var pubBox = el("div");
+    if (!pubs.length) {
+      pubBox.textContent = "None listed yet";
+    } else {
+      var bar = el("div", "mcard-filter");
+      var list = el("ul");
+      var defs = [["all", "Total"], ["first", "1st author"], ["co", "Co-author"]];
+      var btns = [];
+      var draw = function (key) {
+        list.textContent = "";
+        var n = 0;
+        pubs.forEach(function (p) {
+          if (key !== "all" && p.role !== key) return;
+          var li = el("li");
+          var a = el("a", null, p.info.title);
+          a.href = p.info.href; a.target = "_blank"; a.rel = "noopener noreferrer";
+          li.appendChild(a);
+          var meta = [p.info.meta, p.role === "first" ? "1st author" : ""].filter(Boolean).join(" · ");
+          if (meta) li.appendChild(el("small", null, meta));
+          list.appendChild(li);
+          n++;
+        });
+        if (!n) list.appendChild(el("li", null, "None"));
+        btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-k") === key)); });
+      };
+      defs.forEach(function (d) {
+        var cnt = d[0] === "all" ? pubs.length : pubs.filter(function (p) { return p.role === d[0]; }).length;
+        var b = el("button", null, d[1] + " " + cnt);
+        b.type = "button"; b.setAttribute("data-k", d[0]);
+        b.addEventListener("click", function () { draw(d[0]); });
+        btns.push(b); bar.appendChild(b);
+      });
+      pubBox.appendChild(bar);
+      pubBox.appendChild(list);
+      draw("all");
+    }
+    dl.appendChild(row("Publications contributed", pubBox));
+
+    if (m.ORCID) {
+      var oa = el("a", null, "orcid.org/" + m.ORCID);
+      oa.href = "https://orcid.org/" + m.ORCID; oa.target = "_blank"; oa.rel = "noopener noreferrer";
+      dl.appendChild(row("ORCID", oa));
+    }
+    panel.appendChild(dl);
+    scrim.hidden = false;
+    document.body.style.overflow = "hidden";
+    close.focus();
   }
   function load(ids) {
     return Promise.all(ids.map(function (id) {
