@@ -49,3 +49,19 @@ Never place passwords, API keys, unpublished raw data, confidential collaborator
 
 - Google Scholar: https://scholar.google.com/citations?user=3EMW0WgAAAAJ
 - ORCID: https://orcid.org/0000-0001-9067-9050
+
+## Previewing locally
+
+The People section loads `data/members/*.json` with `fetch()`, which browsers block on `file://` pages. Preview through a local server from the repo folder:
+
+```bash
+ruby -run -e httpd . -p 8765
+```
+
+Then open http://localhost:8765/index.html. (VS Code Live Server also works.) GitHub Pages needs no extra setup.
+
+## Editing members
+
+- One file per member in `data/members/` (e.g. `yujinchoi.json`); photos go in `images/members/` and are referenced by the `photo` field (`null` shows an initials circle).
+- `status` is `current` or `alumni`.
+- Display order follows `data/members/index.json`. To add a member, create their JSON file and add its file name (without `.json`) to that list.
