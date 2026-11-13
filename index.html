@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#151311" name="theme-color"/>
+<script>(function(){var t="dark";try{var v=localStorage.getItem("kl-theme");if(v==="light"||v==="dark")t=v;}catch(e){}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",t==="light"?"#FBF7F1":"#151311");})();</script>
 <meta content="Cell Signaling &amp; Molecular Pharmacology Lab at Yonsei University. We combine G protein-coupled receptor (GPCR) functional screening, transducer-resolved pharmacology, receptor engineering, and mechanism-guided ligand discovery to define and control GPCR signaling." name="description"/>
 <title>Kang Lab | Cell Signaling &amp; Molecular Pharmacology | Yonsei University</title>
 <link href="https://gori7873.github.io/Kang-lab/" rel="canonical"/>
@@ -49,6 +51,24 @@
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.7);
   }
 
+  /* Light theme: same token names, warm paper palette. Dark stays the default. */
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --paper: #FBF7F1;
+    --surface: #F4EEE5;
+    --surface-2: #EBE3D7;
+    --ink: #1F1B17;
+    --ink-2: #4B433B;
+    --muted: #6F645A;
+    --rule: #D6CCBE;
+    --rule-soft: #E5DDD0;
+    --donor: #B5483C;
+    --donor-deep: #983A2F;
+    --acceptor: #3E7B6E;
+    --acceptor-2: #2D6558;
+    --shadow: 0 1px 2px rgba(60,40,20,.08), 0 10px 30px -18px rgba(60,40,20,.28);
+  }
+
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -86,6 +106,17 @@
   .brandmark b { font-family: var(--font-display); font-weight: 600; font-size: 19px; letter-spacing: -.01em; }
   .brandmark span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
   .navlinks { display: flex; gap: 4px 2px; flex-wrap: wrap; }
+  .theme-toggle {
+    appearance: none; display: inline-grid; place-items: center; flex: none;
+    width: 36px; height: 36px; padding: 0; border-radius: 50%; cursor: pointer;
+    background: transparent; color: var(--ink-2); border: 1px solid var(--rule);
+  }
+  .theme-toggle:hover { border-color: var(--donor); color: var(--donor); }
+  .theme-toggle svg { width: 17px; height: 17px; display: block; }
+  .theme-toggle .i-sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+  :root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
+  @media (max-width: 620px) { .theme-toggle { order: 2; } .navlinks { order: 3; width: 100%; } }
   .navlinks a {
     font-size: 13.5px; color: var(--ink-2); text-decoration: none;
     padding: 6px 10px; border-radius: 3px;
@@ -280,6 +311,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 34px;
   }
+  .hero-facts-wrap .facts .fact:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
 
   .contact-editorial {
     display: grid;
@@ -429,6 +461,7 @@
 
   @media (max-width: 620px) {
     .hero-facts-wrap .facts { grid-template-columns: 1fr; }
+    .hero-facts-wrap .facts .fact:nth-last-child(2) { border-bottom: 0; }
     .contact-primary h2 { font-size: clamp(42px, 14vw, 60px); }
     .contact-email { font-size: clamp(23px, 7vw, 31px); }
   }
@@ -811,6 +844,10 @@
 <a href="#people">People</a>
 <a href="#contact">Contact</a>
 </div>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode">
+<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+</button>
 </div>
 </nav>
 <header class="wrap hero">
@@ -2153,6 +2190,19 @@ restartBtn.addEventListener("click", () => {
   toggleBtn.textContent = "Pause";
 });
 
+document.addEventListener("themechange", () => {
+  const map = { bg: "--paper", bgDeep: "--paper", surface: "--surface", text: "--ink", muted: "--muted", faint: "--muted", line: "--rule", accent: "--donor", accentSoft: "--donor-deep", accentPale: "--donor-deep", cream: "--ink" };
+  Object.keys(map).forEach(k => { C[k] = css.getPropertyValue(map[k]).trim(); });
+  if (paused) {
+    const ms = (pausedAt - startTime) % DURATION;
+    ctx.clearRect(0, 0, W, H);
+    drawReceptors(ms);
+    drawChemical(ms);
+    drawSignal(ms);
+    drawFinal(ms);
+  }
+});
+
 document.addEventListener("visibilitychange", () => {
   if (!document.hidden) scheduleResize();
 });
@@ -2230,6 +2280,29 @@ requestAnimationFrame(render);
       });
     }
   })();
+</script>
+<script>
+(function () {
+  var btn = document.getElementById("themeToggle");
+  if (!btn) return;
+  var root = document.documentElement;
+  function apply(t, save) {
+    root.setAttribute("data-theme", t);
+    var light = t === "light";
+    var label = light ? "Switch to dark mode" : "Switch to light mode";
+    btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
+    btn.setAttribute("aria-pressed", String(light));
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", light ? "#FBF7F1" : "#151311");
+    if (save) { try { localStorage.setItem("kl-theme", t); } catch (e) {} }
+    document.dispatchEvent(new Event("themechange"));
+  }
+  apply(root.getAttribute("data-theme") === "light" ? "light" : "dark", false);
+  btn.addEventListener("click", function () {
+    apply(root.getAttribute("data-theme") === "light" ? "dark" : "light", true);
+  });
+})();
 </script>
 </body>
 </html>
